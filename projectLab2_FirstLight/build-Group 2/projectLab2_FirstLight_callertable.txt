@@ -1,0 +1,7 @@
+main@_main
+	__FillZeros@___FillZeros
+	shift_left@_shift_left
+		Delay_100ms@_Delay_100ms
+	Delay_100ms@_Delay_100ms
+	shift_right@_shift_right
+		Delay_100ms@_Delay_100ms
