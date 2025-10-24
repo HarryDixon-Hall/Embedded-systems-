@@ -1,5 +1,7 @@
 #line 1 "C:/Users/796324/OneDrive - hull.ac.uk/GitHub/Embedded-systems/Lab5_Temp_Sensor/main.c"
-#line 14 "C:/Users/796324/OneDrive - hull.ac.uk/GitHub/Embedded-systems/Lab5_Temp_Sensor/main.c"
+#line 15 "C:/Users/796324/OneDrive - hull.ac.uk/GitHub/Embedded-systems/Lab5_Temp_Sensor/main.c"
+unsigned int VREF_mV = 5000u;
+
  const unsigned char CC_DIGITS[10] = {
  0x3F,
  0x06,
@@ -52,11 +54,37 @@ unsigned int ADC_Get_Sample(unsigned char ch){
  return (unsigned int)((((unsigned int)ADRESH) << 8) | ADRESL);
 }
 
+unsigned int adc_to_Celsius(unsigned int adc){
+ unsigned long t = (unsigned long)adc;
+ t = t * (unsigned long)VREF_mV;
+ t = (t + 511ul) / 1023ul;
+ t = t / 10ul;
+ if(t>9999ul) t=9999ul;
+ return (unsigned int)t;
+}
+
+unsigned int lm35_read_T100(void){
+ unsigned int adc = ADC_Get_Sample(6);
+ unsigned long t = (unsigned long)adc * (unsigned long)VREF_mV * 10ul;
+ t = (t + 511ul) / 1023ul;
+ if(t>9999ul) t=9999ul;
+ return (unsigned int)t;
+}
+
+unsigned int adc_to_T100(unsigned int adc){
+ unsigned long t = (unsigned long)adc * (unsigned long)VREF_mV * 10ul;
+ t = (t + 511ul) / 1023ul;
+ if(t>9999ul) t=9999ul;
+ return (unsigned int)t;
+}
 
 int main(void)
 {
-    unsigned char pos=0,th=0, h=0, t=0, u=0;
-    unsigned int adc=0;
+    unsigned char pos=0,th=0, h=0, t=0, u=0,i=0,idx=0;
+    unsigned int adc=0,tempC=0;
+    unsigned int T100=0, frame=0,T100_avg=0;
+    unsigned int buf[ 8 ];
+    unsigned long sum=0;
     ANSELA = 0; ANSELB = 0; ANSELD = 0;
     CM1CON0 = 0; CM2CON0 = 0;
     TRISD = 0;
@@ -65,26 +93,40 @@ int main(void)
     all_off();
 
     ADC_Init_Custom();
+    T100 = lm35_read_T100();
+
+    for(i=0;i< 8 ;i++){ buf[i]=adc_to_T100(ADC_Get_Sample(6)); sum+=buf[i]; }
+    T100_avg = (unsigned int)(sum/ 8 );
 
     while (1)
     {
-#line 97 "C:/Users/796324/OneDrive - hull.ac.uk/GitHub/Embedded-systems/Lab5_Temp_Sensor/main.c"
+#line 186 "C:/Users/796324/OneDrive - hull.ac.uk/GitHub/Embedded-systems/Lab5_Temp_Sensor/main.c"
         if(pos==0u){
-            adc = ADC_Get_Sample(6);
-            if(adc>9999u) adc=9999u;
-            split4(adc,&u,&t,&h,&th);
+        if(++frame >=  250 ){
+        frame=0;
+
+        sum -= buf[idx];
+        T100 = adc_to_T100(ADC_Get_Sample(6));
+        buf[idx] = T100;
+        sum += T100;
+
+        idx++; if(idx>= 8 ) idx=0;
+
+        T100_avg = (unsigned int)(sum/ 8 );
         }
-            all_off();LATD=0;Delay_ms( 80 );
-            if (pos==0u) LATD=seg_for(u);
-            else if (pos==1u) LATD=seg_for(t);
-            else if (pos==2u) LATD=seg_for(h);
-            else LATD=seg_for(th);
-            enable_pos(pos); Delay_ms( 900 );
-            all_off(); LATD=0; Delay_ms( 80 );
 
-            pos++; if(pos>=4u) pos=0u;
+        split4(T100_avg,&u,&t,&h,&th);
+        }
 
 
+        all_off(); LATD=0; Delay_us( 80 );
+        if (pos==0u) LATD = seg_for(u);
+        else if (pos==1u) LATD = (unsigned char)(seg_for(t));
+        else if (pos==2u) LATD = seg_for(h) | 0x80u;
+        else LATD = (th==0u ? 0x00 : seg_for(th));
+        enable_pos(pos); Delay_us( 900 );
+        all_off(); LATD=0; Delay_us( 80 );
+        pos++; if(pos>=4u) pos=0u;
     }
 
     return 0;
