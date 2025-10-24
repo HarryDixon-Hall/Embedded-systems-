@@ -1,0 +1,10 @@
+main@_main
+	__FillZeros@___FillZeros
+	all_off@_all_off
+	ADC_Init_Custom@_ADC_Init_Custom
+	ADC_Get_Sample@_ADC_Get_Sample
+	split4@_split4
+		Div_16X16_U@_Div_16X16_U
+	seg_for@_seg_for
+		Div_8X8_U@_Div_8X8_U
+	enable_pos@_enable_pos
