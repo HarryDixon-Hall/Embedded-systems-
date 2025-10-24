@@ -172,7 +172,7 @@ int main(void)
         // all_off(); LATD=0; Delay_us(BLANK_US);
         
         // if (pos==0u) LATD = seg_for(u); // units of 0.01°C
-        // else if (pos==1u) LATD = (unsigned char)(seg_for(t)); // tens with dp set
+        // else if (pos==1u) LATD = (unsigned char)(seg_for(t));
         // else if (pos==2u) LATD = seg_for(h) | 0x80u;
         // else LATD = (th==0u ? 0x00 : seg_for(th)); // optional blank leading zero
 
@@ -203,8 +203,8 @@ int main(void)
         // Show XX.XX by adding dp on the tens digit
         all_off(); LATD=0; Delay_us(BLANK_US);
         if (pos==0u) LATD = seg_for(u);
-        else if (pos==1u) LATD = (unsigned char)(seg_for(t)); // dp at this position
-        else if (pos==2u) LATD = seg_for(h) | 0x80u;
+        else if (pos==1u) LATD = (unsigned char)(seg_for(t));
+        else if (pos==2u) LATD = seg_for(h) | 0x80u; // dp at this position
         else LATD = (th==0u ? 0x00 : seg_for(th));
         enable_pos(pos); Delay_us(SCAN_ON_US);
         all_off(); LATD=0; Delay_us(BLANK_US);
