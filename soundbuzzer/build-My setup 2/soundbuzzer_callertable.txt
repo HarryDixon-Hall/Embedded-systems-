@@ -1,0 +1,28 @@
+main@_main
+	__FillZeros@___FillZeros
+	Sound_Init@_Sound_Init
+	Sound_Play@_Sound_Play
+		Get_Fosc_kHz@_Get_Fosc_kHz
+		Mul_32x32_U@_Mul_32x32_U
+		Div_32x32_U@_Div_32x32_U
+		Div_16X16_U@_Div_16X16_U
+		Delay_Cyc@_Delay_Cyc
+	Button@_Button
+		Delay_500us@_Delay_500us
+	Tone1@_Tone1
+		Sound_Play@_Sound_Play ->[...] 
+	Tone2@_Tone2
+		Sound_Play@_Sound_Play ->[...] 
+	Tone3@_Tone3
+		Sound_Play@_Sound_Play ->[...] 
+	Melody2@_Melody2
+		ToneA@_ToneA
+			Sound_Play@_Sound_Play ->[...] 
+		ToneC@_ToneC
+			Sound_Play@_Sound_Play ->[...] 
+		ToneE@_ToneE
+			Sound_Play@_Sound_Play ->[...] 
+	Melody@_Melody
+		Tone1@_Tone1 ->[...] 
+		Tone2@_Tone2 ->[...] 
+		Tone3@_Tone3 ->[...] 

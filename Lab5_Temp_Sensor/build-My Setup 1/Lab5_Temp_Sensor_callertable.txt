@@ -1,0 +1,21 @@
+main@_main
+	__CC2DW@___CC2DW
+	__FillZeros@___FillZeros
+	all_off@_all_off
+	ADC_Init_Custom@_ADC_Init_Custom
+	lm35_read_T100@_lm35_read_T100
+		ADC_Get_Sample@_ADC_Get_Sample
+		Mul_32x32_U@_Mul_32x32_U
+		Div_32x32_U@_Div_32x32_U
+	ADC_Get_Sample@_ADC_Get_Sample
+	adc_to_T100@_adc_to_T100
+		Mul_32x32_U@_Mul_32x32_U
+		Div_32x32_U@_Div_32x32_U
+	adc_to_Celsius@_adc_to_Celsius
+		Mul_32x32_U@_Mul_32x32_U
+		Div_32x32_U@_Div_32x32_U
+	split4@_split4
+		Div_16X16_U@_Div_16X16_U
+	seg_for@_seg_for
+		Div_8X8_U@_Div_8X8_U
+	enable_pos@_enable_pos

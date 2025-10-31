@@ -145,21 +145,21 @@ int main(void)
 
 
         //Task 3: convert adc to whole degrees Celsius (no decimal point yet)
-        // if(pos==0u){
-        // adc = ADC_Get_Sample(6);
-        // tempC = adc_to_Celsius(adc);
-        // split4(tempC,&u,&t,&h,&th); 
-        // }
-        // all_off(); LATD=0; Delay_us(BLANK_US);
-        // if (pos==0u) LATD=seg_for(u);
-        // else if (pos==1u) LATD=seg_for(t);
-        // else if (pos==2u) LATD = ((th==0u && h==0u) ? 0x00 : seg_for(h));
-        // else LATD = (th==0u ? 0x00 : seg_for(th));
+        if(pos==0u){
+        adc = ADC_Get_Sample(6);
+        tempC = adc_to_Celsius(adc);
+        split4(tempC,&u,&t,&h,&th); 
+        }
+        all_off(); LATD=0; Delay_us(BLANK_US);
+        if (pos==0u) LATD=seg_for(u);
+        else if (pos==1u) LATD=seg_for(t);
+        else if (pos==2u) LATD = ((th==0u && h==0u) ? 0x00 : seg_for(h));
+        else LATD = (th==0u ? 0x00 : seg_for(th));
 
-        // enable_pos(pos); Delay_us(SCAN_ON_US);
-        // all_off(); LATD=0; Delay_us(BLANK_US);
+        enable_pos(pos); Delay_us(SCAN_ON_US);
+        all_off(); LATD=0; Delay_us(BLANK_US);
 
-        // pos++; if(pos>=4u) pos=0u;
+        pos++; if(pos>=4u) pos=0u;
         
 
         //Task 4: display two decimals as XX.XX using integer T100 (°C × 100)
@@ -183,33 +183,34 @@ int main(void)
 
 
         //Task 5: smooth the temperature with a moving average over the last N samples
-        if(pos==0u){
-        if(++frame >= SAMPLE_FRAMES){
-        frame=0;
-        // Remove the oldest sample, add a new one
-        sum -= buf[idx];
-        T100 = adc_to_T100(ADC_Get_Sample(6));
-        buf[idx] = T100;
-        sum += T100;
-        // Advance the index in a ring
-        idx++; if(idx>=MA_N) idx=0;
-        // Compute the average
-        T100_avg = (unsigned int)(sum/MA_N);
-        }
-        // Split the averaged value into 4 digits
-        split4(T100_avg,&u,&t,&h,&th);
-        }
+    //     if(pos==0u){
+    //     if(++frame >= SAMPLE_FRAMES){
+    //     frame=0;
+    //     // Remove the oldest sample, add a new one
+    //     sum -= buf[idx];
+    //     T100 = adc_to_T100(ADC_Get_Sample(6));
+    //     buf[idx] = T100;
+    //     sum += T100;
+    //     // Advance the index in a ring
+    //     idx++; if(idx>=MA_N) idx=0;
+    //     // Compute the average
+    //     T100_avg = (unsigned int)(sum/MA_N);
+    //     }
+    //     // Split the averaged value into 4 digits
+    //     split4(T100_avg,&u,&t,&h,&th);
+    //     }
         
-        // Show XX.XX by adding dp on the tens digit
-        all_off(); LATD=0; Delay_us(BLANK_US);
-        if (pos==0u) LATD = seg_for(u);
-        else if (pos==1u) LATD = (unsigned char)(seg_for(t));
-        else if (pos==2u) LATD = seg_for(h) | 0x80u; // dp at this position
-        else LATD = (th==0u ? 0x00 : seg_for(th));
-        enable_pos(pos); Delay_us(SCAN_ON_US);
-        all_off(); LATD=0; Delay_us(BLANK_US);
-        pos++; if(pos>=4u) pos=0u;
-    }
+    //     // Show XX.XX by adding dp on the tens digit
+    //     all_off(); LATD=0; Delay_us(BLANK_US);
+    //     if (pos==0u) LATD = seg_for(u);
+    //     else if (pos==1u) LATD = (unsigned char)(seg_for(t));
+    //     else if (pos==2u) LATD = seg_for(h) | 0x80u; // dp at this position
+    //     else LATD = (th==0u ? 0x00 : seg_for(th));
+    //     enable_pos(pos); Delay_us(SCAN_ON_US);
+    //     all_off(); LATD=0; Delay_us(BLANK_US);
+    //     pos++; if(pos>=4u) pos=0u;
+    // }
 
     return 0;
+}
 }

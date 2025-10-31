@@ -1,0 +1,52 @@
+{
+    "back_door_key": "0",
+    "config_registers": [
+        {
+            "address": "$00300001",
+            "value": "$33"
+        },
+        {
+            "address": "$00300002",
+            "value": "$1f"
+        },
+        {
+            "address": "$00300003",
+            "value": "$3c"
+        },
+        {
+            "address": "$00300005",
+            "value": "$bf"
+        },
+        {
+            "address": "$00300006",
+            "value": "$85"
+        },
+        {
+            "address": "$00300008",
+            "value": "$f"
+        },
+        {
+            "address": "$00300009",
+            "value": "$c0"
+        },
+        {
+            "address": "$0030000A",
+            "value": "$f"
+        },
+        {
+            "address": "$0030000B",
+            "value": "$e0"
+        },
+        {
+            "address": "$0030000C",
+            "value": "$f"
+        },
+        {
+            "address": "$0030000D",
+            "value": "$40"
+        }
+    ],
+    "data_type_size": "0",
+    "mcu_name": "PIC18F45K22",
+    "stack_allocation": "0"
+}

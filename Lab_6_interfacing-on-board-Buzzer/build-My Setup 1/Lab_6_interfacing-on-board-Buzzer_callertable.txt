@@ -1,0 +1,3 @@
+main@_main
+	__FillZeros@___FillZeros
+	preinit@_preinit

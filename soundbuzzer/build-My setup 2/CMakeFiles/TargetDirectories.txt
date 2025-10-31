@@ -1,0 +1,3 @@
+C:/Users/796324/OneDrive - hull.ac.uk/GitHub/Embedded-systems-/soundbuzzer/build-My setup 2/CMakeFiles/soundbuzzer.dir
+C:/Users/796324/OneDrive - hull.ac.uk/GitHub/Embedded-systems-/soundbuzzer/build-My setup 2/CMakeFiles/edit_cache.dir
+C:/Users/796324/OneDrive - hull.ac.uk/GitHub/Embedded-systems-/soundbuzzer/build-My setup 2/CMakeFiles/rebuild_cache.dir

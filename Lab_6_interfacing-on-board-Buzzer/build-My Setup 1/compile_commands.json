@@ -1,0 +1,8 @@
+[
+{
+  "directory": "C:/Users/796324/OneDrive - hull.ac.uk/GitHub/Embedded-systems-/Lab_6_interfacing-on-board-Buzzer/build-My Setup 1",
+  "command": "C:\\Users\\796324\\AppData\\Local\\MIKROE\\NECTOStudio7\\packages\\compilers\\mikroc\\pic\\mikroc\\mikroCPIC1618.exe -pPIC18F45K22 -jcom -DL -NRL  -b\"C:/Users/796324/OneDrive - hull.ac.uk/GitHub/Embedded-systems-/Lab_6_interfacing-on-board-Buzzer/build-My Setup 1\" -fo32 -C -MF -O11111114 -DBG -UICD -DMikroCCoreVersion=1 -DPREINIT_SUPPORTED -SP\"C:/Users/796324/OneDrive - hull.ac.uk/GitHub/Embedded-systems-/Lab_6_interfacing-on-board-Buzzer/build-My Setup 1\" -SP\"C:/Users/796324/AppData/Local/MIKROE/NECTOStudio7/packages/core/PIC/mikroC/pic_mikroc_pic18/def\" -SP\"C:/Users/796324/OneDrive - hull.ac.uk/GitHub/Embedded-systems-/Lab_6_interfacing-on-board-Buzzer\" \"C:/Users/796324/OneDrive - hull.ac.uk/GitHub/Embedded-systems-/Lab_6_interfacing-on-board-Buzzer/.meproject/setup/Debug/PIC18F45K22.jcfg\"  -IPC:\\Users\\796324\\AppData\\Local\\MIKROE\\NECTOStudio7\\cmake\\include -IP\"C:\\Users\\796324\\OneDrive - hull.ac.uk\\GitHub\\Embedded-systems-\\Lab_6_interfacing-on-board-Buzzer\\.meproject\\setup\\Debug\\lib\\..\\include\\core\" -IP -out CMakeFiles\\Lab_6_interfacing-on-board-Buzzer.dir\\main.mcl \"C:\\Users\\796324\\OneDrive - hull.ac.uk\\GitHub\\Embedded-systems-\\Lab_6_interfacing-on-board-Buzzer\\main.c\" \"C:/Users/796324/OneDrive - hull.ac.uk/GitHub/Embedded-systems-/Lab_6_interfacing-on-board-Buzzer/.meproject/setup/Debug/lib/lib_core.a\"",
+  "file": "C:\\Users\\796324\\OneDrive - hull.ac.uk\\GitHub\\Embedded-systems-\\Lab_6_interfacing-on-board-Buzzer\\main.c",
+  "output": "CMakeFiles\\Lab_6_interfacing-on-board-Buzzer.dir\\main.mcl"
+}
+]

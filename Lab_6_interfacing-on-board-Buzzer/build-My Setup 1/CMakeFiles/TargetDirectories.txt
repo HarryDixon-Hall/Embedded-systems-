@@ -1,0 +1,3 @@
+C:/Users/796324/OneDrive - hull.ac.uk/GitHub/Embedded-systems-/Lab_6_interfacing-on-board-Buzzer/build-My Setup 1/CMakeFiles/Lab_6_interfacing-on-board-Buzzer.dir
+C:/Users/796324/OneDrive - hull.ac.uk/GitHub/Embedded-systems-/Lab_6_interfacing-on-board-Buzzer/build-My Setup 1/CMakeFiles/edit_cache.dir
+C:/Users/796324/OneDrive - hull.ac.uk/GitHub/Embedded-systems-/Lab_6_interfacing-on-board-Buzzer/build-My Setup 1/CMakeFiles/rebuild_cache.dir

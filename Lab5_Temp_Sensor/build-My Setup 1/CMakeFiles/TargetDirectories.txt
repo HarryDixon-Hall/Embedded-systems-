@@ -1,0 +1,3 @@
+C:/Users/796324/OneDrive - hull.ac.uk/GitHub/Embedded-systems-/Lab5_Temp_Sensor/build-My Setup 1/CMakeFiles/Lab5_Temp_Sensor.dir
+C:/Users/796324/OneDrive - hull.ac.uk/GitHub/Embedded-systems-/Lab5_Temp_Sensor/build-My Setup 1/CMakeFiles/edit_cache.dir
+C:/Users/796324/OneDrive - hull.ac.uk/GitHub/Embedded-systems-/Lab5_Temp_Sensor/build-My Setup 1/CMakeFiles/rebuild_cache.dir
